@@ -2,12 +2,15 @@
 
 @if (_isAuthed && Playlists is { })
 {
-  <ul class="list-group">
-    @foreach (var playlist in Playlists)
-    {
-    <li class="list-group-item" @onclick="(() => PlaylistClicked(playlist))">@playlist.Name</li>
-    }
-  </ul>
+    <ul class="list-group">
+        @foreach (var playlist in Playlists)
+        {
+            if (!playlist.Name.StartsWith("RS_"))
+            {
+                <li class="list-group-item" @onclick="(() => PlaylistClicked(playlist))">@playlist.Name</li>
+            }
+        }
+    </ul>
 }
 else
 {
