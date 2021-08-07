@@ -1,0 +1,24 @@
+﻿@page "/"
+
+@* TODO: remove *@
+<p>SPOTIFY_CLIENT_ID: @(Configuration["SPOTIFY_CLIENT_ID"] ?? "Not set, example won't work")</p>
+<p>
+
+</p>
+
+@if (_isAuthed && Playlists is { })
+{
+  <ul class="list-group">
+    @foreach (var playlist in Playlists)
+    {
+    <li class="list-group-item" @onclick="(() => PlaylistClicked(playlist))">@playlist.Name</li>
+    }
+  </ul>
+}
+else
+{
+    <span>To get started:</span>
+    <a href="@_authUri">
+        Login via Spotify
+    </a>
+}
