@@ -1,21 +1,5 @@
 ﻿@page "/"
+@using SpotifyAPI.Web
+@inject NavigationManager NavManager
 
-@if (_isAuthed && Playlists is { })
-{
-    <ul class="list-group">
-        @foreach (var playlist in Playlists)
-        {
-            if (!playlist.Name.StartsWith("RS_"))
-            {
-                <li class="list-group-item" @onclick="(() => PlaylistClicked(playlist))">@playlist.Name</li>
-            }
-        }
-    </ul>
-}
-else
-{
-    <span>To get started:</span>
-    <a href="@_authUri">
-        Login via Spotify
-    </a>
-}
+<h1>Dit zou je niet moeten zien (niet lang iig :P)</h1>

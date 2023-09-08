@@ -1,0 +1,14 @@
+﻿@page "/callback"
+@inject NavigationManager NavManager
+
+<h1>@error</h1>
+
+<ul class="list-group">
+  @if (PlayLists is { })
+  {
+    foreach (var playlist in PlayLists)
+    {
+      <li class="list-group-item" style="cursor: pointer" @onclick="(() => PlaylistClicked(playlist))">@playlist.Name</li>
+    }
+  }
+</ul>
